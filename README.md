@@ -3,6 +3,6 @@
 
 以后再考虑功能扩展吧。。。。
 
-程序使用了Angular CLI搭建，为了将这个程序布署在Heroku上，使用了这个脚手架(https://github.com/vladotesanovic/angular2-express-starter)将原先的程序包装了一下。
+程序使用了Angular CLI搭建，为了将这个程序布署在Heroku上，使用了这个脚手架(https://github.com/vladotesanovic/angular2-express-starter) 将原先的程序包装了一下。
 
 
