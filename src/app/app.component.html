@@ -1,9 +1,36 @@
-<app-ui-top-navigation></app-ui-top-navigation>
-
-<app-ui-sub-navigation [title]="(observable$ | async)?.title" [description]="(observable$ | async)?.text"></app-ui-sub-navigation>
-
-<div class="main">
-  <router-outlet></router-outlet>
+<div class="container">
+  <div class="header">
+    <h1 class="page-title text-center">
+      {{ title }}
+      <span class="version">V1.0</span>
+    </h1>
+  </div>
+  <div class="page-content row">
+    <div class="col-sm-4 left-zone">
+      <h2 class="text-warning">我的跟号</h2>
+      <app-lucky-numbers></app-lucky-numbers>
+    </div>
+    <div class="col-sm-8 right-zone">
+      <div class="bg"></div>
+      <div class="result-placeholder">
+        <div class="draw-note" *ngIf="!latestLotteryNumbers">
+          <h3 class="text-center">点击下面按钮获取最新一期的开奖结果</h3>
+          <button class="btn-draw" (click)="getLatestLotteryNumbers()">兑奖</button>
+        </div>
+        <div class="draw-result" *ngIf="latestLotteryNumbers">
+          <h2 class="result-title">最新一期开奖结果如下：</h2>
+          <ul class="list-unstyled">
+            <li>期数：{{ latestLotteryNumbers.expect }}</li>
+            <li>开奖时间：{{ latestLotteryNumbers.opentime }}</li>
+            <li>开奖号码：{{ latestLotteryNumbers.opencode }}</li>
+          </ul>
+          <button class="btn btn-warning btn-lg" (click)="getLatestLotteryNumbers()">重新兑奖</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <p>-- Dev by Jimmy --</p>
+  </div>
 </div>
 
-<router-outlet name='modal'></router-outlet>

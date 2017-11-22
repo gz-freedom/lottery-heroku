@@ -1,0 +1,8 @@
+<div class="draw-result" *ngIf="latestLotteryNumbers">
+  <h2 class="result-title">最新一期开奖结果如下：</h2>
+  <ul class="list-unstyled">
+    <li>期数：{{ latestLotteryNumbers.expect }}</li>
+    <li>开奖时间：{{ latestLotteryNumbers.opentime }}</li>
+    <li>开奖号码：{{ latestLotteryNumbers.opencode }}</li>
+  </ul>
+</div>

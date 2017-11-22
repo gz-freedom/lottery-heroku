@@ -1,5 +1,5 @@
 {
-  "name": "angular2-express-starter",
+  "name": "lottery",
   "version": "1.0.0",
   "description": "Starter application of Angular2 with Express",
   "main": "server/app.js",
@@ -15,9 +15,9 @@
     "_server:build": "tsc -p ./server",
     "postinstall": "npm run build"
   },
-  "author": "Vlado Tešanović",
+  "author": "Jimmy",
   "repository": {
-    "url": "https://github.com/vladotesanovic/angular2-express-starter"
+    "url": "https://github.com/gz-freedom/lottery-heroku"
   },
   "private": true,
   "dependencies": {

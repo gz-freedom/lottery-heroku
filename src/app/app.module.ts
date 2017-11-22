@@ -1,50 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
+import { HttpModule, JsonpModule } from "@angular/http";
+import { AppService } from "./app.service";
+import { ApiService } from "./api.service";
 import { AppComponent } from './app.component';
-import { routes } from './app.router';
-import { metaReducers, reducers } from './store';
-import { SharedModule } from './shared/shared.module';
-import { WeatherService } from './weather/weather.service';
-import { WeatherEffects } from './store/weather/weather.effects';
-import { FeedEffects } from './store/feed/feed.effects';
-import { ProfileEffects } from './store/profile/profile.effects';
-import { environment } from '../environments/environment';
-import { RouterModule } from '@angular/router';
+import { AppDirective } from "./app.directive";
+import { LuckyNumbersComponent } from './lucky-numbers/lucky-numbers.component';
+import { LotteryResultComponent } from './lottery-result/lottery-result.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppDirective,
+    LuckyNumbersComponent,
+    LotteryResultComponent
   ],
   imports: [
     BrowserModule,
-    SharedModule,
-    FormsModule,
     HttpModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([
-      ProfileEffects,
-      FeedEffects,
-      WeatherEffects
-    ]),
-    !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [],
-    RouterModule.forRoot(
-      routes,
-      {
-        useHash: true
-      }
-    )
+    JsonpModule
   ],
-  providers: [
-    WeatherService
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+  providers: [ApiService],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
