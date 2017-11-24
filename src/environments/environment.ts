@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  lotteryUrl: "http://f.apiplus.net/ssq-1.json"
+  lotteryUrl: "//f.apiplus.net/ssq-1.json"
 };
